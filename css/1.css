@@ -1,0 +1,86 @@
+.header img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+nav {
+    background-color: #4ce600 ;
+    margin-top: 8px;
+}
+
+.nav-item {
+    padding-left: 8px;
+    padding-right: 8px;
+
+}
+
+.nav-item:hover {
+    background-color: darkgreen;
+}
+
+
+.riadok {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+/* Create four equal columns that sits next to each other */
+.stlpec {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+
+}
+
+.stlpec img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 800px) {
+    .stlpec {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .stlpec {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+table{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+
+td:nth-child(2) {
+    width: fit-content;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: limegreen;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid grey;
+}
