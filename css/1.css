@@ -6,6 +6,7 @@
     height: auto;
 }
 
+
 nav {
     background-color: #4ce600 ;
     margin-top: 8px;
@@ -20,7 +21,6 @@ nav {
 .nav-item:hover {
     background-color: darkgreen;
 }
-
 
 .riadok {
     display: flex;

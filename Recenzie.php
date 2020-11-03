@@ -19,20 +19,26 @@
     <div class="container">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="Index.html">Domov</a>
+                <a class="nav-link" href="Index.php">Domov</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Ponuka.html">Ponuka</a>
+                <a class="nav-link" href="Ponuka.php">Ponuka</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Fotogaleria.html">Fotogaleria</a>
+                <a class="nav-link" href="Fotogaleria.php">Fotogaleria</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link " href="Recenzie.html">Recenzie</a>
+                <a class="nav-link " href="Recenzie.php">Recenzie</a>
             </li>
         </ul>
     </div>
-
 </nav>
+
+<div class="obr">
+    <img src="img/lastradalogo_1.png" alt="Logo" />
+</div>
+<div>
+    <p>TextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXTTextTEXTEXT</p>
+</div>
 </body>
 </html>
