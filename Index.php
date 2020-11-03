@@ -28,7 +28,7 @@
                 <a class="nav-link" href="Fotogaleria.php">Fotogaleria</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link " href="Recenzie.php">Recenzie</a>
+                <a class="nav-link " href="Registracia.php">Recenzie</a>
             </li>
         </ul>
     </div>
