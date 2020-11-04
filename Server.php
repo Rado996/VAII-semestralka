@@ -8,11 +8,17 @@ $errors = array();
 
 // connect to the database
 $db = mysqli_connect('localhost', 'root', '', 'lastrada');
+// Check connection
+
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+}
+echo "Connected successfully";
 
 // REGISTER USER
 if (isset($_POST['Register'])) {
     // receive all input values from the form
-    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $username = mysqli_real_escape_string($db, $_POST['uname']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $pass = mysqli_real_escape_string($db, $_POST['pass']);
 
@@ -31,7 +37,7 @@ if (isset($_POST['Register'])) {
     $user = mysqli_fetch_assoc($result);
 
     if ($user) { // if user exists
-        if ($user['username'] === $username) {
+        if ($user['uname'] === $username) {
             array_push($errors, "Username already exists");
         }
 
@@ -47,14 +53,25 @@ if (isset($_POST['Register'])) {
         $query = "INSERT INTO users (username, email, password) 
   			  VALUES('$username', '$email', '$password')";
         mysqli_query($db, $query);
-        $_SESSION['username'] = $username;
+        $_SESSION['uname'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        header('location: Register.php');
+       // header('location: Register.php');  // toto pada
     }
+
+if (count($errors) > 0) :
+    ?>
+    <div class="error">
+        <?php foreach ($errors as $error) : ?>
+            <p><?php echo $error ?></p>
+        <?php endforeach ?>
+    </div>
+<?php
+endif ;
+
 }
 // LOGIN USER
 if (isset($_POST['Login'])) {
-    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $username = mysqli_real_escape_string($db, $_POST['uname']);
     $password = mysqli_real_escape_string($db, $_POST['pass']);
 
     if (empty($username)) {
@@ -76,6 +93,15 @@ if (isset($_POST['Login'])) {
                 array_push($errors, "Wrong username/password combination");
         }
     }
+    if (count($errors) > 0) :
+        ?>
+        <div class="error">
+            <?php foreach ($errors as $error) : ?>
+                <p><?php echo $error ?></p>
+            <?php endforeach ?>
+        </div>
+    <?php
+    endif ;
 }
 
 
