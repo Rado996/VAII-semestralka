@@ -6,7 +6,6 @@
     height: auto;
 }
 
-
 nav {
     background-color: #4ce600 ;
     margin-top: 8px;
@@ -64,7 +63,6 @@ table{
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-
 }
 
 
@@ -83,4 +81,30 @@ tr:hover {
 
 table, th, td {
     border: 1px solid grey;
+}
+
+.registration, .loginform{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 8px;
+    background-color: chartreuse;
+}
+
+.error {
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+}
+.success {
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
 }

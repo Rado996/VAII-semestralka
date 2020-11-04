@@ -31,7 +31,10 @@
                 <a class="nav-link" href="Fotogaleria.php">Fotogaleria</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link " href="Registracia.php">Recenzie</a>
+                <a class="nav-link " href="Registracia.php">Registracia</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="Login.php">Prihlasenie</a>
             </li>
         </ul>
     </div>

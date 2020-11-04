@@ -1,4 +1,5 @@
 <?php include('server.php') ?>
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -13,7 +14,6 @@
     <style>
         <?php include 'css/1.css'; ?>
     </style>
-
 
 
 </head>
@@ -43,16 +43,14 @@
     </div>
 </nav>
 
-<div class="forms registration">
+<div class="forms loginform">
     <form method="post" action="Index.php">
         <?php include('errors.php'); ?>
         <label for="uname">Použíateľské meno:</label><br>
         <input type="text" id="uname" name="uname" value=""><br>
         <label for="pass">Heslo:</label><br>
         <input type="password" id="pass" name="pass" value=""><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value=""><br><br>
-        <button type="submit" name="Register">Registrovať</button>
+        <button type="submit" name="Login">Prihlásiť</button>
     </form>
 
 </div>
