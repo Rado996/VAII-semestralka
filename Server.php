@@ -1,108 +1,128 @@
 <?php
 session_start();
 
-// initializing variables
+
 $username = "";
 $email    = "";
-$errors = array();
+global $editReview;
+$editReview = false;
+global $reviewBody;
+$reviewBody= "";
+
+global $loggedIn;
+$loggedIn= false;
+
+if(isset($_SESSION['editID']))
+    echo($_SESSION['editID']);
+
+
+if(isset($_SESSION['userName']) && isset($_SESSION['loggedInUser']) ){
+    $loggedIn = true;
+}
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'lastrada');
+$database = new mysqli('localhost', 'root', '', 'lastrada');
 // Check connection
 
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
+if ($database->connect_error) {
+    die("Connection failed: " . $database->connect_error);
 }
-echo "Connected successfully";
 
-// REGISTER USER
+$commentsDatabase = $database->query("SELECT * FROM comments ORDER BY created_at DESC");
+$comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
+
+if (isset($_POST['comment_posted'])) {
+    $comment = $database->real_escape_string($_POST['comment_text']);
+    if(isset($_SESSION['editBody'])) {
+        $editID = $_SESSION['editID'];
+        $database->query("UPDATE comments Set Body ='$comment' WHERE Comment_ID = '$editID' ");
+        unset($_SESSION['editBody']);
+        unset($_SESSION['editID']);
+        exit('Comment edited');
+    }else {
+        $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', 13,  now(), null)");
+        exit('Comment added');
+    }
+}
+
+if (isset($_GET['edit'])) {
+    $comment_id = $_GET['edit'];
+    $_SESSION['editID'] = $comment_id;
+
+    $sql = $database->query( "SELECT Body FROM comments WHERE Comment_ID='$comment_id'");
+    $data = $sql->fetch_assoc();
+    $editReview = true;
+    $_SESSION['editBody'] = $data['Body'];
+    header('location: Recenzie.php');
+}
+
+
+if (isset($_GET['delete'])) {
+    $comment_id = $_GET['delete'];
+    $database->query( "DELETE FROM comments WHERE Comment_ID='$comment_id'");
+    //$_SESSION['message'] = "Address deleted!";
+    header('location: Recenzie.php');
+}
+
 if (isset($_POST['Register'])) {
     // receive all input values from the form
-    $username = mysqli_real_escape_string($db, $_POST['uname']);
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $pass = mysqli_real_escape_string($db, $_POST['pass']);
-
-
-    // form validation: ensure that the form is correctly filled ...
-    // by adding (array_push()) corresponding error unto $errors array
-    if (empty($username)) { array_push($errors, "Username is required"); }
-    if (empty($email)) { array_push($errors, "Email is required"); }
-    if (empty($pass)) { array_push($errors, "Password is required"); }
-
+    $username = $database->real_escape_string($_POST['uname']);
+    $email = $database->real_escape_string($_POST['email']);
+    $pass = $database->real_escape_string($_POST['pass']);
 
     // first check the database to make sure
     // a user does not already exist with the same username and/or email
-    $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
-    $result = mysqli_query($db, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $sql = $database->query("SELECT id FROM users WHERE email='$email'");
+        if ($sql->num_rows > 0) {
+            exit('failedUserExists');
+        } else {
+            //$password = md5( $pass);
+            //$password = password_hash($pass, PASSWORD_DEFAULT);//encrypt the password before saving in the database
+            $database->query("INSERT INTO users (username, email, password)  VALUES('$username', '$email', '$pass')");
+            $sql = $database->query("SELECT id FROM users WHERE username='$username'");
+            $data = $sql->fetch_assoc();
+            $_SESSION['loggedInUser'] = 1;
+            $_SESSION['userName'] = $username;
+            $_SESSION['userID'] = $data['id'];
+            exit('success');
 
-    if ($user) { // if user exists
-        if ($user['uname'] === $username) {
-            array_push($errors, "Username already exists");
         }
-
-        if ($user['email'] === $email) {
-            array_push($errors, "email already exists");
-        }
+    }else{
+        exit('failedEmail');
     }
-
-    // Finally, register user if there are no errors in the form
-    if (count($errors) == 0) {
-        $password = md5($pass);//encrypt the password before saving in the database
-
-        $query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
-        mysqli_query($db, $query);
-        $_SESSION['uname'] = $username;
-        $_SESSION['success'] = "You are now logged in";
-       // header('location: Register.php');  // toto pada
-    }
-
-if (count($errors) > 0) :
-    ?>
-    <div class="error">
-        <?php foreach ($errors as $error) : ?>
-            <p><?php echo $error ?></p>
-        <?php endforeach ?>
-    </div>
-<?php
-endif ;
 
 }
-// LOGIN USER
+
 if (isset($_POST['Login'])) {
-    $username = mysqli_real_escape_string($db, $_POST['uname']);
-    $password = mysqli_real_escape_string($db, $_POST['pass']);
+    $username = $database->real_escape_string($_POST['name']);
+    $pass = $database->real_escape_string($_POST['pass']);
 
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($password)) {
-        array_push($errors, "Password is required");
+
+    //$password = md5( $password);
+    //$password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = $database->query("SELECT * FROM users WHERE username='$username' AND password='$pass'");
+    if ($sql->num_rows == 1) {
+        $data = $sql->fetch_assoc();
+        $_SESSION['username'] = $username;
+        $_SESSION['loggedInUser'] = 1;
+        $loggedIn = true;
+        header('location: Index.php');
+    }else {
+        exit('Wrong username/password combination');
     }
 
-    if (count($errors) == 0) {
-        $password = md5($password);
-        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-        $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
-            $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
-            header('location: Login.php');
-        }else {
-                array_push($errors, "Wrong username/password combination");
-        }
-    }
-    if (count($errors) > 0) :
-        ?>
-        <div class="error">
-            <?php foreach ($errors as $error) : ?>
-                <p><?php echo $error ?></p>
-            <?php endforeach ?>
-        </div>
-    <?php
-    endif ;
 }
 
+
+if (isset($_POST['Logout'])) {
+    echo 'Logout';
+    unset($_SESSION['username'] );
+    unset($_SESSION['loggedInUser']);
+    $loggedIn = false;
+    header('location: Index.php');
+    exit('Logged out');
+
+}
 
 
