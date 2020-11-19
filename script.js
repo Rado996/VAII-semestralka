@@ -58,9 +58,9 @@ $(document).ready(function() {
                     password: pass
                 }, success: function (response){
                     if(response === 'failedEmail')
-                        alert('Please insert valid email address!');
+                        alert('Prosím zadajte valídný email!');
                     else if(response === 'failedUserExists')
-                        alert('User with this email already exists!');
+                        alert('Zadaný email už je registrovaný!');
                     else{
                         window.location = window.location;
                     }
@@ -69,7 +69,7 @@ $(document).ready(function() {
             });
 
         }else {
-            alert('Please check your inputs!')
+            alert('Prosím skontrolujete zadane údaje!')
         }
 
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
         var comment_text = $("#comment_text").val();
 
         if (comment_text === "" ) {
-            alert('Please write comment first!')
+            alert('Prosím najprv napíšte komentar!')
         }else {
             $.ajax({
                 url: 'Recenzie.php',
@@ -96,26 +96,5 @@ $(document).ready(function() {
         }
     });
 
-
-    $("#cmmlete").click(function () {
-        var commentID = $("#comment_text").val();
-
-        if (comment_text === "" ) {
-            alert('Please write comment first!')
-        }else {
-            $.ajax({
-                url: 'Recenzie.php',
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    comment_posted: 1,
-                    comment_text: comment_text,
-                }, success: function (response) {
-                    console.log(response);
-                }
-
-            });
-        }
-    });
 
 });

@@ -6,8 +6,7 @@ $username = "";
 $email    = "";
 global $editReview;
 $editReview = false;
-global $reviewBody;
-$reviewBody= "";
+
 
 global $loggedIn;
 $loggedIn= false;
@@ -31,6 +30,7 @@ if ($database->connect_error) {
 $commentsDatabase = $database->query("SELECT * FROM comments ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
 
+//pridavanie kommentov + edit
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
     if(isset($_SESSION['editBody'])) {
@@ -44,11 +44,10 @@ if (isset($_POST['comment_posted'])) {
         exit('Comment added');
     }
 }
-
+//v podstate len aby som stranke povedal že chcem editovat a aby mi to tam dalo možnosť editovať a dalo obsah pôvodneho komentara
 if (isset($_GET['edit'])) {
     $comment_id = $_GET['edit'];
     $_SESSION['editID'] = $comment_id;
-
     $sql = $database->query( "SELECT Body FROM comments WHERE Comment_ID='$comment_id'");
     $data = $sql->fetch_assoc();
     $editReview = true;
@@ -56,7 +55,7 @@ if (isset($_GET['edit'])) {
     header('location: Recenzie.php');
 }
 
-
+//delete
 if (isset($_GET['delete'])) {
     $comment_id = $_GET['delete'];
     $database->query( "DELETE FROM comments WHERE Comment_ID='$comment_id'");
