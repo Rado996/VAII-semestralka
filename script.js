@@ -42,9 +42,9 @@ $(document).ready(function() {
     });
 
     $("#Register").click(function () {
-        var name = $("#uname").val();
         var email = $("#email").val();
         var pass = $("#pass").val();
+        var name = $("#uname").val();
 
         if (name != "" && pass != ""  && email != ""){
             $.ajax({
@@ -74,6 +74,7 @@ $(document).ready(function() {
 
 
     });
+
 
     $("#submitComment").click(function () {
         var comment_text = $("#comment_text").val();

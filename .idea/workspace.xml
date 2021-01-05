@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Vaii_sem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Vaii_sem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hlavicka.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ponuka.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ponuka.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
@@ -42,7 +46,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/YouTube Comments [Part 1]/index.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Vaii_sem_laravel" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -102,7 +106,13 @@
       <workItem from="1605550990133" duration="4395000" />
       <workItem from="1605602718817" duration="15766000" />
       <workItem from="1605695980064" duration="13601000" />
-      <workItem from="1605772771082" duration="493000" />
+      <workItem from="1605772771082" duration="3335000" />
+      <workItem from="1605782524238" duration="2904000" />
+      <workItem from="1606037208727" duration="1675000" />
+      <workItem from="1608999575445" duration="183000" />
+      <workItem from="1609000292241" duration="590000" />
+      <workItem from="1609169596856" duration="96000" />
+      <workItem from="1609858941454" duration="7708000" />
     </task>
     <task id="LOCAL-00001" summary="Com">
       <created>1604421261985</created>
@@ -132,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605702329172</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Checkpoint 2">
+      <created>1605773288434</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605773288434</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,14 +169,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605287597705" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1605702327388">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1605773286460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605702327388" />
-    <state x="2568" y="267" key="FileChooserDialogImpl" timestamp="1605469191363">
-      <screen x="1920" y="0" width="1680" height="1010" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605773286460" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609169692199">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605451879433" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1609169692199" />
     <state x="2568" y="267" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1605469191363" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1605221201125">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -221,10 +238,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605202506329" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605702330894">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605773292031">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605702330894" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605773292031" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604512515984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -19,9 +19,9 @@ if(isset($_SESSION['userName']) && isset($_SESSION['loggedInUser']) ){
     $loggedIn = true;
 }
 
-// connect to the database
+
 $database = new mysqli('localhost', 'root', '', 'lastrada');
-// Check connection
+
 
 if ($database->connect_error) {
     die("Connection failed: " . $database->connect_error);
@@ -30,7 +30,7 @@ if ($database->connect_error) {
 $commentsDatabase = $database->query("SELECT * FROM comments ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
 
-//pridavanie kommentov + edit
+
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
     if(isset($_SESSION['editBody'])) {
@@ -44,7 +44,7 @@ if (isset($_POST['comment_posted'])) {
         exit('Comment added');
     }
 }
-//v podstate len aby som stranke povedal že chcem editovat a aby mi to tam dalo možnosť editovať a dalo obsah pôvodneho komentara
+
 if (isset($_GET['edit'])) {
     $comment_id = $_GET['edit'];
     $_SESSION['editID'] = $comment_id;
@@ -69,15 +69,14 @@ if (isset($_POST['Register'])) {
     $email = $database->real_escape_string($_POST['email']);
     $pass = $database->real_escape_string($_POST['pass']);
 
-    // first check the database to make sure
-    // a user does not already exist with the same username and/or email
+
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $sql = $database->query("SELECT id FROM users WHERE email='$email'");
         if ($sql->num_rows > 0) {
             exit('failedUserExists');
         } else {
             //$password = md5( $pass);
-            //$password = password_hash($pass, PASSWORD_DEFAULT);//encrypt the password before saving in the database
+            //$password = password_hash($pass, PASSWORD_DEFAULT);
             $database->query("INSERT INTO users (username, email, password)  VALUES('$username', '$email', '$pass')");
             $sql = $database->query("SELECT id FROM users WHERE username='$username'");
             $data = $sql->fetch_assoc();
@@ -103,7 +102,7 @@ if (isset($_POST['Login'])) {
     $sql = $database->query("SELECT * FROM users WHERE username='$username' AND password='$pass'");
     if ($sql->num_rows == 1) {
         $data = $sql->fetch_assoc();
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $username; //
         $_SESSION['loggedInUser'] = 1;
         $loggedIn = true;
         header('location: Index.php');

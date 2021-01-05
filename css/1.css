@@ -65,25 +65,41 @@ table{
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
+    border: 1px solid grey;
 }
 
+.ponuka-menu {
+    border: 1px solid grey;
+}
 
-td:nth-child(2) {
+.cena {
+   font-size: 30px;
+    text-align: right ;
+}
+
+/*td:nth-child(2) {
     width: fit-content;
-}
+}*/
 
 tr:nth-child(even){
-    background-color: #f2f2f2;
+
 }
 
-tr:hover {
+table:hover {
     background-color: limegreen;
     color: white;
 }
 
-table, th, td {
-    border: 1px solid grey;
+table tr:nth-child(even) :hover{
+    background-color: limegreen;
+    color: white;
 }
+
+tr a {
+    display: block;
+}
+
+
 
 .registration, .loginform{
     width: fit-content;
@@ -98,27 +114,6 @@ table, th, td {
 .account {
     margin-right: 0px;
     margin-left: auto;
-
-}
-
-
-
-********************************************************************
-.error {
-    width: 92%;
-    margin: 0px auto;
-    padding: 10px;
-    border: 1px solid #a94442;
-    color: #a94442;
-    background: #f2dede;
-    border-radius: 5px;
-    text-align: left;
-}
-.success {
-    color: #3c763d;
-    background: #dff0d8;
-    border: 1px solid #3c763d;
-    margin-bottom: 20px;
 }
 
 

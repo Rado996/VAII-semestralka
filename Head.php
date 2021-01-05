@@ -19,6 +19,7 @@ include ('server.php');
     <style>
         <?php include 'css/1.css'; ?>
     </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 </head>
 <body>
@@ -57,7 +58,7 @@ include ('server.php');
             <?php else: ?>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link " href="Login.php"> <?php echo $_SESSION['userName']  ?> </a>
+                    <a class="nav-link " href="Login.php"> <?php echo $_SESSION['username']  ?> </a>
                 </li>
                 <li class="nav-item active">
                     <button class="btn btn-danger"  name="Logout" id="Logout" href="index.php" >Logout</button>
