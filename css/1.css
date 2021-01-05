@@ -77,6 +77,27 @@ table{
     text-align: right ;
 }
 
+table:hover .edit {
+    display: block;
+}
+table:hover .delete {
+    display: block;
+}
+
+.edit, .delete {
+    padding-top: 7px;
+    padding-right: 7px;
+    right:1px;
+    top: 1px;
+    text-align: right;
+    display: none;
+
+}
+
+.edit a, .delete a {
+    color: #000;
+}
+
 /*td:nth-child(2) {
     width: fit-content;
 }*/
@@ -90,14 +111,12 @@ table:hover {
     color: white;
 }
 
-table tr:nth-child(even) :hover{
+table tr :hover{
     background-color: limegreen;
     color: white;
 }
 
-tr a {
-    display: block;
-}
+
 
 
 
