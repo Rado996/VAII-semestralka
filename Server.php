@@ -11,8 +11,8 @@ $editReview = false;
 global $loggedIn;
 $loggedIn= false;
 
-if(isset($_SESSION['editID']))
-    echo($_SESSION['editID']);
+/*if(isset($_SESSION['editID']))
+    echo($_SESSION['editID']);*/
 
 
 if(isset($_SESSION['userName']) && isset($_SESSION['loggedInUser']) ){
@@ -30,6 +30,9 @@ if ($database->connect_error) {
 $commentsDatabase = $database->query("SELECT * FROM comments ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
 
+$menuDatabase = $database->query("SELECT * FROM menu");
+$menu = mysqli_fetch_all($menuDatabase, MYSQLI_ASSOC);
+
 
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
@@ -41,6 +44,23 @@ if (isset($_POST['comment_posted'])) {
         exit('Comment edited');
     }else {
         $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', 13,  now(), null)");
+        exit('Comment added');
+    }
+}
+
+if (isset($_POST['menuItem_added'])) {
+    $menuItemName = $database->real_escape_string($_POST['menuItem_Name']);
+    $menuItemDesc = $database->real_escape_string($_POST['menuItem_Description']);
+    $menuItemIngredients = $database->real_escape_string($_POST['menuItem_Ingredients']);
+    $menuItemPrice= $database->real_escape_string($_POST['menuItem_Price']);
+    if(isset($_SESSION['menuItem_edit'])) {
+        $editID = $_SESSION['menuItem_editID'];
+        $database->query("UPDATE menu Set Name ='$menuItemName' WHERE id = '$editID' ");
+        unset($_SESSION['menuItem_editID']);
+        unset($_SESSION['menuItem_edit']);
+        exit('menu item edited');
+    }else {
+        $database->query("INSERT INTO menu (Name, Description, Ingredients, Price ,Created_at, Updated_at) VALUES ('$menuItemName', '$menuItemDesc', '$menuItemIngredients', '$menuItemPrice',  now(), null)");
         exit('Comment added');
     }
 }

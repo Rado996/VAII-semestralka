@@ -4,6 +4,7 @@
     <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ponuka.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ponuka.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +107,8 @@
       <workItem from="1608999575445" duration="183000" />
       <workItem from="1609000292241" duration="590000" />
       <workItem from="1609169596856" duration="96000" />
-      <workItem from="1609858941454" duration="8973000" />
+      <workItem from="1609858941454" duration="9887000" />
+      <workItem from="1609925548989" duration="7466000" />
     </task>
     <task id="LOCAL-00001" summary="Com">
       <created>1604421261985</created>
@@ -150,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609866896376</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="novy štyl ponuky a buttony">
+      <created>1609868410208</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609868410209</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +169,8 @@
     <MESSAGE value="Com" />
     <MESSAGE value="Checkpoint 2" />
     <MESSAGE value="novy štyl ponuky" />
-    <option name="LAST_COMMIT_MESSAGE" value="novy štyl ponuky" />
+    <MESSAGE value="novy štyl ponuky a buttony" />
+    <option name="LAST_COMMIT_MESSAGE" value="novy štyl ponuky a buttony" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1605202700383">
@@ -171,10 +181,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605287597705" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1609866894106">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1609868409565">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1609866894106" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1609868409565" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609169692199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -240,10 +250,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605202506329" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609866900215">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609868414300">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1609866900215" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1609868414300" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604512515984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
