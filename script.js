@@ -1,6 +1,4 @@
 $(document).ready(function() {
-
-
     $("#LogIn").click(function () {
         var name = $("#name").val();
         var pass = $("#pass").val();
@@ -69,7 +67,7 @@ $(document).ready(function() {
             });
 
         }else {
-            alert('Prosím skontrolujete zadane údaje!')
+            alert('Prosím skontrolujete zadane údaje!');
         }
 
 
@@ -77,10 +75,10 @@ $(document).ready(function() {
 
 
     $("#submitComment").click(function () {
+        alert('Prosím najprv napíšte komentar!');
         var comment_text = $("#comment_text").val();
-
         if (comment_text === "" ) {
-            alert('Prosím najprv napíšte komentar!')
+
         }else {
             $.ajax({
                 url: 'Recenzie.php',
@@ -97,5 +95,49 @@ $(document).ready(function() {
         }
     });
 
+    $("#submitItem").click(function () {
+        alert('Prosím najprv napíšte komentar!');
+        /*
+        var itemName = $("#item_name").val();
+        var itemDescription =$("#item_description").val();
+        var itemIngredients =$("#item_ingredieints").val();
+        var itemPrice =$("#item_price").val();
+        alert('Prosím najprv napíšte komentar!')
+        if (itemPrice === "" ) {
+            alert('Prosím najprv napíšte komentar!');
+        }else {
+            $.ajax({
+                url: 'Ponuka.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    menuItem_added: 1,
+                    menuItem_Name: itemName,
+                    menuItem_Description: itemDescription,
+                    menuItem_Ingredients: itemIngredients,
+                    menuItem_Price: itemPrice,
+                }, success: function (response) {
+                    console.log(response);
+                }
+
+            });
+        }*/
+    });
+
+    $("#addMenuItem").click(function () {
+        alert('Prosím najprv napíšte komentar!');
+        $("#addMenuItem").css("display", "none");
+        $("#menuItem_form").css("display", "block");
+        $("#cicina").css("background-color", "red");
+
+    });
+
+    $("#cicina").click(function () {
+        alert('Prosím najprv napíšte komentar!');
+        $("#addMenuItem").css("display", "none");
+        $("#menuItem_form").css("display", "block");
+        $("#cicina").css("background-color", "red");
+
+    });
 
 });

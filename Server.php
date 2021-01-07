@@ -49,6 +49,8 @@ if (isset($_POST['comment_posted'])) {
 }
 
 if (isset($_POST['menuItem_added'])) {
+    echo ("cicina");
+
     $menuItemName = $database->real_escape_string($_POST['menuItem_Name']);
     $menuItemDesc = $database->real_escape_string($_POST['menuItem_Description']);
     $menuItemIngredients = $database->real_escape_string($_POST['menuItem_Ingredients']);
@@ -61,7 +63,7 @@ if (isset($_POST['menuItem_added'])) {
         exit('menu item edited');
     }else {
         $database->query("INSERT INTO menu (Name, Description, Ingredients, Price ,Created_at, Updated_at) VALUES ('$menuItemName', '$menuItemDesc', '$menuItemIngredients', '$menuItemPrice',  now(), null)");
-        exit('Comment added');
+        exit('Item added');
     }
 }
 

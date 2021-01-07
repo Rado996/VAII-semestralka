@@ -61,6 +61,10 @@ nav {
     }
 }
 
+#menuItem_form{
+    display: none;
+}
+
 table{
     width: 60%;
     margin-left: 20%;
@@ -110,7 +114,9 @@ table tr :hover{
     color: white;
 }
 
-
+#cicina {
+    /*background-color: red;*/
+}
 
 
 
