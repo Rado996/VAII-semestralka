@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $username = "";
 $email    = "";
 global $editReview;
@@ -41,11 +40,14 @@ if (isset($_POST['comment_posted'])) {
         $database->query("UPDATE comments Set Body ='$comment' WHERE Comment_ID = '$editID' ");
         unset($_SESSION['editBody']);
         unset($_SESSION['editID']);
+        unset($_SESSION['editBody']);
         exit('Comment edited');
     }else {
         $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', 13,  now(), null)");
+        unset($_SESSION['editBody']);
         exit('Comment added');
     }
+
 }
 
 if (isset($_POST['menuItem_added'])) {
@@ -60,9 +62,12 @@ if (isset($_POST['menuItem_added'])) {
         $database->query("UPDATE menu Set Name ='$menuItemName' WHERE id = '$editID' ");
         unset($_SESSION['menuItem_editID']);
         unset($_SESSION['menuItem_edit']);
+        unset($_SESSION['menuItem_added']);
         exit('menu item edited');
     }else {
-        $database->query("INSERT INTO menu (Name, Description, Ingredients, Price ,Created_at, Updated_at) VALUES ('$menuItemName', '$menuItemDesc', '$menuItemIngredients', '$menuItemPrice',  now(), null)");
+        $database->query("INSERT INTO menu (ItemName, Description, Ingredients, Price ,Added_at, Updated_at) VALUES ('$menuItemName', '$menuItemDesc', '$menuItemIngredients', '$menuItemPrice',  now(), null)");
+
+        unset($_SESSION['menuItem_added']);
         exit('Item added');
     }
 }

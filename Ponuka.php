@@ -14,11 +14,11 @@
 
 <div class="container col-4 addMenuItemForm" >
 
-    <textarea name="item_name" id="item_name" class="form-control" cols="10" rows="1"></textarea>
-    <textarea name="item_description" id="item_description" class="form-control" cols="30" rows="1"></textarea>
-    <textarea name="item_ingredients" id="item_ingredients" class="form-control" cols="30" rows="1"></textarea>
-    <textarea name="item_price" id="item_price" class="form-control" cols="5" rows="1"></textarea>
-    <button class="btn btn-primary btn-sm pull-right" name="submitComment" id="submitItem">Pridať recenziu</button>
+        <textarea name="item_name" id="item_name" class="form-control" cols="10" rows="1"></textarea>
+        <textarea name="item_description" id="item_description" class="form-control" cols="30" rows="1"></textarea>
+        <textarea name="item_ingredients" id="item_ingredients" class="form-control" cols="30" rows="1"></textarea>
+        <textarea name="item_price" id="item_price" class="form-control" cols="5" rows="1"></textarea>
+        <button class="btn btn-primary btn-sm pull-right" name="submitComment" id="submitItem">Pridať položku</button>
 
 
 </div>
@@ -27,15 +27,13 @@
     <button class="btn btn-primary btn-sm pull-right" name="addMenuItem" id="addMenuItem">Pridať položku</button>
 </div>
 
-<button id="cicina"> cicina</button>
-
 <?php if (isset($menu)):
     foreach ($menu as $menuItem):
         $menuItemID = $menuItem['id'] ; ?>
         <div class="container-fluid ponuka-menu">
             <table>
                 <tr>
-                    <td colspan="11"><?php echo $menuItem['Name']; ?></td>
+                    <td colspan="11"><?php echo $menuItem['ItemName']; ?></td>
                     <td colspan="1" class="cena"> <?php echo $menuItem['Price']; ?>€ </td>
                 </tr>
                 <tr>
@@ -58,51 +56,5 @@
 <?php endif ?>
 
 </body>
-<script>
 
-    $("#submitItem").click(function () {
-        var itemName = $("#item_name").val();
-        var itemDescription =$("#item_description").val();
-        var itemIngredients =$("#item_ingredieints").val();
-        var itemPrice =$("#item_price").val();
-        if (itemPrice === "" ) {
-            alert('Prosím najprv napíšte komentar!');
-        }else {
-            console.log("idem");
-            $.ajax({
-                url: 'Ponuka.php',
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    menuItem_added: 1,
-                    menuItem_Name: itemName,
-                    menuItem_Description: itemDescription,
-                    menuItem_Ingredients: itemIngredients,
-                    menuItem_Price: itemPrice,
-                }, success: function (response) {
-                    console.log("dosiel som");
-                    console.log(response);
-                }
-
-            });
-        }
-    });
-
-    $("#addMenuItem").click(function () {
-
-        $("#addMenuItem").css("display", "none");
-        $("#menuItem_form").css("display", "block");
-        $("#cicina").css("background-color", "red");
-
-    });
-
-    $("#cicina").click(function () {
-
-        $("#addMenuItem").css("display", "none");
-        $("#menuItem_form").css("display", "block");
-        $("#cicina").css("background-color", "red");
-
-    });
-
-</script>
 </html>

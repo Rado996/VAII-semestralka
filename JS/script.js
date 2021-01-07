@@ -75,10 +75,10 @@ $(document).ready(function() {
 
 
     $("#submitComment").click(function () {
-        alert('Prosím najprv napíšte komentar!');
+
         var comment_text = $("#comment_text").val();
         if (comment_text === "" ) {
-
+            alert('Prosím najprv napíšte komentar!');
         }else {
             $.ajax({
                 url: 'Recenzie.php',
@@ -96,13 +96,11 @@ $(document).ready(function() {
     });
 
     $("#submitItem").click(function () {
-        alert('Prosím najprv napíšte komentar!');
-        /*
         var itemName = $("#item_name").val();
         var itemDescription =$("#item_description").val();
-        var itemIngredients =$("#item_ingredieints").val();
+        var itemIngredients =$("#item_ingredients").val();
         var itemPrice =$("#item_price").val();
-        alert('Prosím najprv napíšte komentar!')
+        console.log(itemPrice);
         if (itemPrice === "" ) {
             alert('Prosím najprv napíšte komentar!');
         }else {
@@ -121,23 +119,14 @@ $(document).ready(function() {
                 }
 
             });
-        }*/
+        }
     });
 
     $("#addMenuItem").click(function () {
-        alert('Prosím najprv napíšte komentar!');
         $("#addMenuItem").css("display", "none");
         $("#menuItem_form").css("display", "block");
-        $("#cicina").css("background-color", "red");
 
     });
 
-    $("#cicina").click(function () {
-        alert('Prosím najprv napíšte komentar!');
-        $("#addMenuItem").css("display", "none");
-        $("#menuItem_form").css("display", "block");
-        $("#cicina").css("background-color", "red");
-
-    });
 
 });
