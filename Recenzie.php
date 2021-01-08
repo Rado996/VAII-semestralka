@@ -10,7 +10,7 @@
     <style>
         <?php include 'css/1.css'; ?>
     </style>
-    <script src="JS/script.js"></script>
+    <script src="JS/script12.js"></script>
 </head>
 <body>
 

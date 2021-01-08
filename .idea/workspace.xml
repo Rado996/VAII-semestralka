@@ -4,10 +4,10 @@
     <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/script12.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ponuka.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ponuka.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recenzie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Recenzie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +51,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\Vaii_sem\JS" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\radof\PhpstormProjects\Vaii_sem\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\Vaii_sem\JS" />
+      <recent name="D:\XAMPP\htdocs\Vaii_sem" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.Recenzie.php">
@@ -115,7 +116,8 @@
       <workItem from="1609858941454" duration="9887000" />
       <workItem from="1609925548989" duration="7519000" />
       <workItem from="1610016795106" duration="7163000" />
-      <workItem from="1610025914181" duration="5048000" />
+      <workItem from="1610025914181" duration="11539000" />
+      <workItem from="1610103159775" duration="9285000" />
     </task>
     <task id="LOCAL-00001" summary="Com">
       <created>1604421261985</created>
@@ -180,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610028130379</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="dynamicke ponuky">
+      <created>1610031240618</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610031240618</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,10 +212,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605287597705" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610028128347">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610031239508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610028128347" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610031239508" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609169692199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,18 +273,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="790" y="243" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605195523328" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1605466633380">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1610103358623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605466633380" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610103358623" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1605202506329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605202506329" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610028132401">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610031241910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610028132401" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610031241910" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604512515984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

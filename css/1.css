@@ -61,7 +61,19 @@ nav {
     }
 }
 
-#menuItem_form{
+#editItemModal{
+    display: none;
+}
+
+#addMenuItemForm{
+    display: none;
+}
+
+.edit_menu_item{
+    width: 80%;
+}
+
+.edit_menu_form{
     display: none;
 }
 
@@ -114,9 +126,6 @@ table tr :hover{
     color: white;
 }
 
-#cicina {
-    /*background-color: red;*/
-}
 
 
 

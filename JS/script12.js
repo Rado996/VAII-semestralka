@@ -1,4 +1,9 @@
 $(document).ready(function() {
+    var id3 = 5
+    var id2 = "#cicina" + id3
+    console.log(id2);
+
+
     $("#LogIn").click(function () {
         var name = $("#name").val();
         var pass = $("#pass").val();
@@ -124,9 +129,20 @@ $(document).ready(function() {
 
     $("#addMenuItem").click(function () {
         $("#addMenuItem").css("display", "none");
-        $("#menuItem_form").css("display", "block");
 
+        $("#addMenuItemForm").css("display", "block");
     });
 
+    $("a.editItembtn").click(function () {
+        var id = $(this).data("itid");
+        //var id = document.getElementById(idtest).getAttribute("data-itid");
+        var editFormId = "ponuka-menuEditFormID" + id;
+        console.log(editFormId);
+        var editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "block";
+        console.log(id);
+
+
+    });
 
 });
