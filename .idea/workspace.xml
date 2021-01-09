@@ -4,10 +4,10 @@
     <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/script12.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/script12.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/script2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ponuka.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ponuka.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Recenzie.php" beforeDir="false" afterPath="$PROJECT_DIR$/Recenzie.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,8 @@
       <workItem from="1609925548989" duration="7519000" />
       <workItem from="1610016795106" duration="7163000" />
       <workItem from="1610025914181" duration="11539000" />
-      <workItem from="1610103159775" duration="9285000" />
+      <workItem from="1610103159775" duration="9917000" />
+      <workItem from="1610177365996" duration="9001000" />
     </task>
     <task id="LOCAL-00001" summary="Com">
       <created>1604421261985</created>
@@ -189,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610031240618</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="edit ponuky">
+      <created>1610116702262</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610116702262</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +209,8 @@
     <MESSAGE value="novy štyl ponuky" />
     <MESSAGE value="novy štyl ponuky a buttony" />
     <MESSAGE value="dynamicke ponuky" />
-    <option name="LAST_COMMIT_MESSAGE" value="dynamicke ponuky" />
+    <MESSAGE value="edit ponuky" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit ponuky" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1605202700383">
@@ -212,10 +221,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605287597705" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610031239508">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610116700439">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610031239508" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610116700439" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609169692199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -281,22 +290,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605202506329" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610031241910">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610116703529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610031241910" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610116703529" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604512515984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1604512515984" />
-    <state x="1924" y="-15" width="1603" height="1027" key="dock-window-1" timestamp="1605452447137">
-      <screen x="1920" y="0" width="1680" height="1010" />
-    </state>
-    <state x="1924" y="-15" width="1603" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605452447137" />
-    <state x="189" y="63" width="1558" height="1027" key="dock-window-2" timestamp="1605520075622">
+    <state x="547" y="170" width="1684" height="1027" key="dock-window-1" timestamp="1610179196127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="189" y="63" width="1558" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605520075622" />
+    <state x="547" y="170" width="1684" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610179196127" />
+    <state x="1942" y="6" width="1635" height="1027" key="dock-window-2" timestamp="1610180748941">
+      <screen x="1920" y="0" width="1680" height="1010" />
+    </state>
+    <state x="1942" y="6" width="1635" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610180748941" />
     <state x="2085" y="61" width="1363" height="997" key="dock-window-2/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1605469785490" />
+    <state x="1920" y="0" width="1527" height="1027" key="dock-window-3" timestamp="1610181499014">
+      <screen x="1920" y="0" width="1680" height="1010" />
+    </state>
+    <state x="1920" y="0" width="1527" height="1027" key="dock-window-3/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610181499014" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1610180715816">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610180715816" />
   </component>
 </project>

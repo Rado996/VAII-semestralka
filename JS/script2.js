@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    var id3 = 5
-    var id2 = "#cicina" + id3
-    console.log(id2);
-
 
     $("#LogIn").click(function () {
         var name = $("#name").val();
@@ -114,6 +110,7 @@ $(document).ready(function() {
                 method: 'POST',
                 dataType: 'json',
                 data: {
+                    menuItem_submitted:1,
                     menuItem_added: 1,
                     menuItem_Name: itemName,
                     menuItem_Description: itemDescription,
@@ -129,20 +126,86 @@ $(document).ready(function() {
 
     $("#addMenuItem").click(function () {
         $("#addMenuItem").css("display", "none");
-
         $("#addMenuItemForm").css("display", "block");
     });
 
     $("a.editItembtn").click(function () {
         var id = $(this).data("itid");
-        //var id = document.getElementById(idtest).getAttribute("data-itid");
         var editFormId = "ponuka-menuEditFormID" + id;
-        console.log(editFormId);
+        //console.log(editFormId);
         var editElementForm = document.getElementById(editFormId);
         editElementForm.style.display = "block";
-        console.log(id);
-
+        //console.log(id);
 
     });
 
+    $("a.cancelEditItembtn").click(function () {
+        var id = $(this).data("itid");
+        var editFormId = "ponuka-menuEditFormID" + id;
+        //console.log(editFormId);
+        var editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "none";
+        //console.log(id);
+    });
+
+    $("a.submitEditItembtn").click(function () {
+        let id = $(this).data("itid");
+        let editFormId = "ponuka-menuEditFormID" + id;
+        let newNameElement = document.getElementById("editItem_name"+id);
+        let newName = $(newNameElement).val();
+        let newPriceElement = document.getElementById("editItem_price"+id);
+        let newPrice = $(newPriceElement).val();
+        let newDescriptionElement = document.getElementById("editItem_description"+id);
+        let newDescription = $(newDescriptionElement).val();
+        let newIngredientsElement = document.getElementById("editItem_ingredients"+id);
+        let newIngredients = $(newIngredientsElement).val();
+        if (newPrice === "" ) {
+            alert('Prosím najprv napíšte komentar!');
+        }else {
+            $.ajax({
+                url: 'Ponuka.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    menuItem_submitted:1,
+                    menuItem_edited: 1,
+                    menuItem_editID: id,
+                    menuItem_Name: newName,
+                    menuItem_Description: newDescription,
+                    menuItem_Ingredients: newIngredients,
+                    menuItem_Price: newPrice,
+                }, success: function (response) {
+                    console.log(response);
+                    window.location = window.location;
+                }
+
+            });
+        }
+
+
+
+        var editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "none";
+        location.reload();
+    });
+
+    $("a.deleteItembtn").click(function () {
+        var id = $(this).data("itid");
+        console.log(id);
+        $.ajax({
+            url: 'Ponuka.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                menuItem_deleted:1,
+                menuItem_deleteID: id,
+            }, success: function (response) {
+                console.log(response);
+                console.log("done");
+            }
+
+        });
+        location.reload();
+
+    });
 });

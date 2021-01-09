@@ -50,27 +50,37 @@ if (isset($_POST['comment_posted'])) {
 
 }
 
-if (isset($_POST['menuItem_added'])) {
-    echo ("cicina");
-
+if (isset($_POST['menuItem_submitted'])) {
     $menuItemName = $database->real_escape_string($_POST['menuItem_Name']);
     $menuItemDesc = $database->real_escape_string($_POST['menuItem_Description']);
     $menuItemIngredients = $database->real_escape_string($_POST['menuItem_Ingredients']);
     $menuItemPrice= $database->real_escape_string($_POST['menuItem_Price']);
-    if(isset($_SESSION['menuItem_edit'])) {
-        $editID = $_SESSION['menuItem_editID'];
-        $database->query("UPDATE menu Set Name ='$menuItemName' WHERE id = '$editID' ");
+    if(isset($_POST['menuItem_edited'])) {
+        $editID = $_POST['menuItem_editID'];
+        $database->query("UPDATE menu Set itemName ='$menuItemName',Description='$menuItemDesc', Ingredients='$menuItemIngredients', Price='$menuItemPrice' , Updated_at= now() WHERE id = '$editID' ");
         unset($_SESSION['menuItem_editID']);
         unset($_SESSION['menuItem_edit']);
-        unset($_SESSION['menuItem_added']);
+        unset($_SESSION['menuItem_submitted']);
+        unset($_SESSION['menuItem_edited']);
         exit('menu item edited');
     }else {
         $database->query("INSERT INTO menu (ItemName, Description, Ingredients, Price ,Added_at, Updated_at) VALUES ('$menuItemName', '$menuItemDesc', '$menuItemIngredients', '$menuItemPrice',  now(), null)");
 
+        unset($_SESSION['menuItem_submitted']);
         unset($_SESSION['menuItem_added']);
         exit('Item added');
     }
 }
+
+if(isset($_POST['menuItem_deleted'])){
+
+    $menuItem_id = $database->real_escape_string($_POST['menuItem_deleteID']);
+    echo($menuItem_id);
+    $database->query( "DELETE FROM menu WHERE id='$menuItem_id'");
+    exit('Item deleted');
+
+}
+
 
 if (isset($_GET['edit'])) {
     $comment_id = $_GET['edit'];
