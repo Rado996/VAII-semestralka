@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="server edit/delete ponuky">
+    <list default="true" id="d79471cf-63d2-4377-b41a-cc8a0fc3588d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fotogaleria.php" beforeDir="false" afterPath="$PROJECT_DIR$/Fotogaleria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/script2.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/script2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/Server.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ponuka.php" beforeDir="false" afterPath="$PROJECT_DIR$/Ponuka.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/lastradalogo_1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +118,8 @@
       <workItem from="1610103159775" duration="9917000" />
       <workItem from="1610177365996" duration="16272000" />
       <workItem from="1610266605295" duration="6702000" />
-      <workItem from="1610354272279" duration="2379000" />
+      <workItem from="1610354272279" duration="2420000" />
+      <workItem from="1610380185928" duration="10873000" />
     </task>
     <task id="LOCAL-00001" summary="Com">
       <created>1604421261985</created>
@@ -206,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610191100183</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="male zmeny fotoalbum">
+      <created>1610368546460</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1610368546460</updated>
+    </task>
+    <task id="LOCAL-00014" summary="male zmeny fotoalbum">
+      <created>1610386114524</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610386114524</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +233,8 @@
     <MESSAGE value="dynamicke ponuky" />
     <MESSAGE value="edit ponuky" />
     <MESSAGE value="delete ponuky" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete ponuky" />
+    <MESSAGE value="male zmeny fotoalbum" />
+    <option name="LAST_COMMIT_MESSAGE" value="male zmeny fotoalbum" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="163" key="#PHP" timestamp="1605202700383">
@@ -231,10 +245,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605287597705" />
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610191127972">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1610386113303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610191127972" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610386113303" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609169692199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -300,10 +314,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1605202506329" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610191139155">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1610386123287">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610191139155" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1610386123287" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604512515984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -3,11 +3,8 @@
 <html lang="sk">
 <head>
 
-    <?php include('Head.php');
-    ?>
-    <style>
-        <?php include 'css/1.css'; ?>
-    </style>
+    <?php include('Head.php')  ?>
+
 
 </head>
 <body>
@@ -27,10 +24,6 @@
 <div class="container col-2">
     <button class="btn btn-primary btn-sm " name="addMenuItem" id="addMenuItem">Pridať položku</button>
 </div>
-
-<button type="button" data-itid="cicina<?php echo 5; ?>" class="btn btn-default btn-lg" id="editMenuItem<?php echo 5; ?>">Login</button>
-
-
 
 <div id="editItemModal" role="dialog">
     <div class="modal-dialog">
