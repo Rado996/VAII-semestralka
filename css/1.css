@@ -45,6 +45,10 @@ nav {
     width: 100%;
 }
 
+#picture_Form{
+    display: none;
+}
+
 
 @media screen and (max-width: 800px) {
     .stlpec {

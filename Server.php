@@ -7,6 +7,7 @@ global $editReview;
 $editReview = false;
 
 
+
 global $loggedIn;
 $loggedIn= false;
 
@@ -32,6 +33,8 @@ $comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
 $menuDatabase = $database->query("SELECT * FROM menu");
 $menu = mysqli_fetch_all($menuDatabase, MYSQLI_ASSOC);
 
+$pictureDatabase = $database->query("SELECT * FROM pictures");
+$pics = mysqli_fetch_all($pictureDatabase, MYSQLI_ASSOC);
 
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
@@ -78,6 +81,34 @@ if(isset($_POST['menuItem_deleted'])){
     echo($menuItem_id);
     $database->query( "DELETE FROM menu WHERE id='$menuItem_id'");
     exit('Item deleted');
+
+}
+
+
+if (isset($_POST['submit_picture'])) {
+    // Get image name
+
+    unset($_POST['submit_picture']);
+    $image = $_FILES['image']['name'];
+    // Get text
+    $image_text = $database->real_escape_string($_POST['pic_desc']);
+    $image_name = $database->real_escape_string($_POST['pic_name']);
+    // image file directory
+    $target = "img/".basename($image);
+
+    $sql = "INSERT INTO pictures (Image_name, Image_description, Image, Created_at) VALUES ('$image_name','$image_text', '$image', now())";
+    // execute query
+    mysqli_query($database, $sql);
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        $msg = "Image uploaded successfully";
+    }else{
+        $msg = "Failed to upload image";
+    }
+    unset($_FILES['image']['name']);
+    unset($_POST['pic_desc']);
+    header("Location: http://localhost/Vaii_sem/Fotogaleria.php"); /* Redirect browser */
+    exit();
 
 }
 

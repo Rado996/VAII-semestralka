@@ -142,10 +142,9 @@ $(document).ready(function() {
     $("a.cancelEditItembtn").click(function () {
         var id = $(this).data("itid");
         var editFormId = "ponuka-menuEditFormID" + id;
-        //console.log(editFormId);
         var editElementForm = document.getElementById(editFormId);
         editElementForm.style.display = "none";
-        //console.log(id);
+
     });
 
     $("a.submitEditItembtn").click(function () {
@@ -181,9 +180,6 @@ $(document).ready(function() {
 
             });
         }
-
-
-
         var editElementForm = document.getElementById(editFormId);
         editElementForm.style.display = "none";
         location.reload();
@@ -208,4 +204,35 @@ $(document).ready(function() {
         location.reload();
 
     });
+
+    $("#add_new_picture").click(function() {
+        $(this).css("display", "none");
+        $("#picture_Form").css("display", "block");
+
+    });
+
+    $("#cancel_new_picture").click(function() {
+        $("#picture_Form").css("display", "none");
+        $("#add_new_picture").css("display", "block");
+
+    });
+
+    $("#submit_picture").click(function (){
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
 });
