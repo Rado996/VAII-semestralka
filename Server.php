@@ -86,29 +86,41 @@ if(isset($_POST['menuItem_deleted'])){
 
 
 if (isset($_POST['submit_picture'])) {
-    // Get image name
 
-    unset($_POST['submit_picture']);
     $image = $_FILES['image']['name'];
-    // Get text
     $image_text = $database->real_escape_string($_POST['pic_desc']);
     $image_name = $database->real_escape_string($_POST['pic_name']);
-    // image file directory
-    $target = "img/".basename($image);
-
+    $target = "img/" . basename($image);
     $sql = "INSERT INTO pictures (Image_name, Image_description, Image, Created_at) VALUES ('$image_name','$image_text', '$image', now())";
-    // execute query
-    mysqli_query($database, $sql);
 
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-        $msg = "Image uploaded successfully";
-    }else{
-        $msg = "Failed to upload image";
-    }
+    mysqli_query($database, $sql);
+    move_uploaded_file($_FILES['image']['tmp_name'], $target);
+
+    unset($_POST['submit_picture']);
     unset($_FILES['image']['name']);
     unset($_POST['pic_desc']);
     header("Location: http://localhost/Vaii_sem/Fotogaleria.php"); /* Redirect browser */
     exit();
+
+}
+
+if (isset($_POST['picture_edited'])) {
+    $editID = $_POST['picture_editID'];
+    $pictureName =$database->real_escape_string($_POST['picture_Name']);
+    $pictureDesc =$database->real_escape_string($_POST['picture_Description']);
+    $database->query("UPDATE pictures Set Picture_Name ='$pictureName',Description='$pictureDesc', Updated_at= now() WHERE id = '$editID' ");
+    unset($_SESSION['picture_editID']);
+    unset($_SESSION['picture_edited']);
+    unset($_SESSION['picture_Name']);
+    unset($_SESSION['picture_Description']);
+    exit('picture edited');
+}
+
+if(isset($_POST['picture_deleted'])){
+
+$pictureId = $database->real_escape_string($_POST['picture_deleteID']);
+$database->query( "DELETE FROM pictures WHERE id='$pictureId'");
+exit('Item deleted');
 
 }
 
@@ -170,7 +182,7 @@ if (isset($_POST['Login'])) {
     $sql = $database->query("SELECT * FROM users WHERE username='$username' AND password='$pass'");
     if ($sql->num_rows == 1) {
         $data = $sql->fetch_assoc();
-        $_SESSION['username'] = $username; //
+        $_SESSION['userName'] = $username; //
         $_SESSION['loggedInUser'] = 1;
         $loggedIn = true;
         header('location: Index.php');
@@ -182,11 +194,10 @@ if (isset($_POST['Login'])) {
 
 
 if (isset($_POST['Logout'])) {
-    echo 'Logout';
-    unset($_SESSION['username'] );
+    unset($_SESSION['userName'] );
     unset($_SESSION['loggedInUser']);
     $loggedIn = false;
-    header('location: Index.php');
+    header("Location: http://localhost/Vaii_sem/Index.php");
     exit('Logged out');
 
 }

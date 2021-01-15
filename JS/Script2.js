@@ -221,15 +221,75 @@ $(document).ready(function() {
         if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
         }
+    });
 
-
+    $("a.editPicturebtn").click(function () {
+        let id = $(this).data("itid");
+        let editFormId = "pictureEditForm" + id;
+        let editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "block";
+        let picture = "pictureDisplay" +id;
+        document.getElementById(picture).style.display= "none";
 
     });
 
+    $("a.deletePicturebtn").click(function () {
+        let id = $(this).data("itid");
+        $.ajax({
+            url: 'Ponuka.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                picture_deleted:1,
+                picture_deleteID: id,
+            }, success: function (response) {
+                console.log(response);
+            }
 
+        });
+        location.reload();
 
+    });
 
+    $("a.submitEditPicturebtn").click(function () {
+        let id = $(this).data("itid");
+        let editFormId = "pictureEditFormID" + id;
+        let newNameElement = document.getElementById("editPicture_name"+id);
+        let newName = $(newNameElement).val();
+        let newDescriptionElement = document.getElementById("editPicture_description"+id);
+        let newDescription = $(newDescriptionElement).val();
+        if (newName === "" ) {
+            alert('Prosím najprv napíšte komentar!');
+        }else {
+            $.ajax({
+                url: 'Fotogaleria.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    picture_edited: 1,
+                    picture_editID: id,
+                    picture_Name: newName,
+                    picture_Description: newDescription,
+                }, success: function (response) {
+                    console.log(response);
+                    window.location = window.location;
+                }
 
+            });
+        }
+        let editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "none";
+        location.reload();
+    });
+
+    $("a.cancelEditPicturebtn").click(function () {
+        let id = $(this).data("itid");
+        let editFormId = "pictureEditFormID" + id;
+        let editElementForm = document.getElementById(editFormId);
+        editElementForm.style.display = "none";
+        let picture = "pictureDisplay" +id;
+        document.getElementById(picture).style.display= "block";
+    });
 
 
 

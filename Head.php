@@ -15,7 +15,7 @@ include ('server.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--<script type="text/javascript" src="scripts.js"></script> -->
-    <script src="JS/script2.js"></script>
+    <script src="JS/Script2.js"></script>
 
     <style>
         <?php include 'css/1.css'; ?>
@@ -59,7 +59,7 @@ include ('server.php');
             <?php else: ?>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link " href="Login.php"> <?php echo $_SESSION['username']  ?> </a>
+                    <a class="nav-link " href="Login.php"> <?php echo $_SESSION['userName']  ?> </a>
                 </li>
                 <li class="nav-item active">
                     <button class="btn btn-danger"  name="Logout" id="Logout" href="index.php" >Logout</button>
