@@ -77,7 +77,8 @@ $(document).ready(function() {
 
     $("#submitComment").click(function () {
 
-        var comment_text = $("#comment_text").val();
+        let author = $(this).data("author");
+        let comment_text = $("#comment_text").val();
         if (comment_text === "" ) {
             alert('Prosím najprv napíšte komentar!');
         }else {
@@ -88,13 +89,91 @@ $(document).ready(function() {
                 data: {
                     comment_posted: 1,
                     comment_text: comment_text,
+                    comment_author: author,
                 }, success: function (response) {
                     console.log(response);
+                    location.reload();
+                }
+
+            });
+        }
+
+    });
+
+    $("a.commentEditBtn").click(function () {
+
+        let id = $(this).data("cmid");
+        let editCommentFormId = "editComment" + id;
+        let editCommentForm = document.getElementById(editCommentFormId);
+        editCommentForm.style.display = "block";
+        let commentId =  "comment" + id;
+        let commentDisplay = document.getElementById(commentId);
+        commentDisplay.style.display = "none";
+
+    });
+
+    $("a.commentCancelEditBtn").click(function () {
+
+        let id = $(this).data("cmid");
+        let editCommentFormId = "editComment" + id;
+        let editCommentForm = document.getElementById(editCommentFormId);
+        editCommentForm.style.display = "none";
+        let commentId =  "comment" + id;
+        let commentDisplay = document.getElementById(commentId);
+        commentDisplay.style.display = "block";
+
+    });
+
+    $("a.commentSendEditBtn").click(function () {
+
+        let id = $(this).data("cmid");
+        let editCommentForm = document.getElementById("editComment" + id);
+        editCommentForm.style.display = "none";
+        let commentDisplay = document.getElementById("comment" + id);
+        commentDisplay.style.display = "block";
+        let editCommentBody = document.getElementById("editCommentArea"+id);
+        let commentBody = $(editCommentBody).val();
+        console.log(commentBody);
+
+        if (commentBody === "" ) {
+            alert('Prosím najprv napíšte komentar!');
+        }else {
+            $.ajax({
+                url: 'Recenzie.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    comment_edited: 1,
+                    comment_text: commentBody,
+                    comment_editID: id,
+                }, success: function (response) {
+                    console.log(response);
+                    Location.reload();
                 }
 
             });
         }
     });
+
+
+    $("a.commentDeleteBtn").click(function () {
+        let id = $(this).data("cmid");
+        console.log(id);
+        $.ajax({
+            url: 'Recenzie.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                comment_delete: 1,
+                comment_deleteID: id,
+            }, success: function (response) {
+                console.log(response);
+            }
+
+        });
+        location.reload();
+    });
+
 
     $("#submitItem").click(function () {
         var itemName = $("#item_name").val();
@@ -158,6 +237,7 @@ $(document).ready(function() {
         let newDescription = $(newDescriptionElement).val();
         let newIngredientsElement = document.getElementById("editItem_ingredients"+id);
         let newIngredients = $(newIngredientsElement).val();
+
         if (newPrice === "" ) {
             alert('Prosím najprv napíšte komentar!');
         }else {
@@ -180,7 +260,7 @@ $(document).ready(function() {
 
             });
         }
-        var editElementForm = document.getElementById(editFormId);
+        let editElementForm = document.getElementById(editFormId);
         editElementForm.style.display = "none";
         location.reload();
     });
@@ -253,7 +333,7 @@ $(document).ready(function() {
 
     $("a.submitEditPicturebtn").click(function () {
         let id = $(this).data("itid");
-        let editFormId = "pictureEditFormID" + id;
+        let editFormId = "pictureEditForm" + id;
         let newNameElement = document.getElementById("editPicture_name"+id);
         let newName = $(newNameElement).val();
         let newDescriptionElement = document.getElementById("editPicture_description"+id);
@@ -278,7 +358,9 @@ $(document).ready(function() {
             });
         }
         let editElementForm = document.getElementById(editFormId);
-        editElementForm.style.display = "none";
+        $(editElementForm).css("display", "none");
+        let pictureElementForm = document.getElementById("pictureDisplay"+id);
+        $(pictureElementForm).css("display", "block")
         location.reload();
     });
 

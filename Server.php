@@ -38,19 +38,34 @@ $pics = mysqli_fetch_all($pictureDatabase, MYSQLI_ASSOC);
 
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
-    if(isset($_SESSION['editBody'])) {
-        $editID = $_SESSION['editID'];
-        $database->query("UPDATE comments Set Body ='$comment' WHERE Comment_ID = '$editID' ");
-        unset($_SESSION['editBody']);
-        unset($_SESSION['editID']);
-        unset($_SESSION['editBody']);
-        exit('Comment edited');
-    }else {
-        $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', 13,  now(), null)");
-        unset($_SESSION['editBody']);
-        exit('Comment added');
-    }
+    $author = $database->real_escape_string($_POST['comment_author']);
+    $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', '$author',  now(), null)");
+    exit('Comment added');
 
+    unset($_POST['comment_posted']);
+    unset($_POST['comment_text']);
+}
+
+
+if (isset($_POST['comment_edited'])) {
+    $comment = $database->real_escape_string($_POST['comment_text']);
+    $editID = $_POST['comment_editID'];
+    $database->query("UPDATE comments Set Body ='$comment' WHERE Comment_ID = '$editID' ");
+    echo($database->error);
+    unset($_POST['editBody']);
+    unset($_POST['comment_editID']);
+    unset($_POST['comment_edited']);
+    unset($_POST['comment_text']);
+    exit('Comment edited');
+}
+
+
+if(isset($_POST['comment_delete'])){
+    $comment_id = $database->real_escape_string($_POST['comment_deleteID']);
+    echo($comment_id);
+    $database->query( "DELETE FROM comments WHERE Comment_ID = '$comment_id'");
+
+    exit('Comment deleted');
 }
 
 if (isset($_POST['menuItem_submitted'])) {
@@ -81,7 +96,6 @@ if(isset($_POST['menuItem_deleted'])){
     echo($menuItem_id);
     $database->query( "DELETE FROM menu WHERE id='$menuItem_id'");
     exit('Item deleted');
-
 }
 
 
@@ -99,22 +113,27 @@ if (isset($_POST['submit_picture'])) {
     unset($_POST['submit_picture']);
     unset($_FILES['image']['name']);
     unset($_POST['pic_desc']);
-    header("Location: http://localhost/Vaii_sem/Fotogaleria.php"); /* Redirect browser */
+    header("Location: http://localhost/Vaii_sem/Fotogaleria.php");
     exit();
 
 }
+
 
 if (isset($_POST['picture_edited'])) {
     $editID = $_POST['picture_editID'];
     $pictureName =$database->real_escape_string($_POST['picture_Name']);
     $pictureDesc =$database->real_escape_string($_POST['picture_Description']);
-    $database->query("UPDATE pictures Set Picture_Name ='$pictureName',Description='$pictureDesc', Updated_at= now() WHERE id = '$editID' ");
+    $database->query("UPDATE pictures Set Image_Name ='$pictureName',Image_Description='$pictureDesc', Updated_at= now() WHERE id = '$editID' ");
+    echo($database->error);
     unset($_SESSION['picture_editID']);
     unset($_SESSION['picture_edited']);
     unset($_SESSION['picture_Name']);
     unset($_SESSION['picture_Description']);
-    exit('picture edited');
+    //exit('picture edited');
+    exit($database->error);
 }
+
+
 
 if(isset($_POST['picture_deleted'])){
 
@@ -124,24 +143,6 @@ exit('Item deleted');
 
 }
 
-
-if (isset($_GET['edit'])) {
-    $comment_id = $_GET['edit'];
-    $_SESSION['editID'] = $comment_id;
-    $sql = $database->query( "SELECT Body FROM comments WHERE Comment_ID='$comment_id'");
-    $data = $sql->fetch_assoc();
-    $editReview = true;
-    $_SESSION['editBody'] = $data['Body'];
-    header('location: Recenzie.php');
-}
-
-//delete
-if (isset($_GET['delete'])) {
-    $comment_id = $_GET['delete'];
-    $database->query( "DELETE FROM comments WHERE Comment_ID='$comment_id'");
-    //$_SESSION['message'] = "Address deleted!";
-    header('location: Recenzie.php');
-}
 
 if (isset($_POST['Register'])) {
     // receive all input values from the form

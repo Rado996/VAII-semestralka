@@ -154,9 +154,7 @@ table:hover .delete {
     color: #000;
 }
 
-/*td:nth-child(2) {
-    width: fit-content;
-}*/
+
 
 tr:nth-child(even){
 
@@ -223,12 +221,9 @@ textarea {
 .comment-details p {
     margin-bottom: 0px;
 }
-.comment .profile_pic {
-    width: 35px;
-    height: 35px;
-    margin-right: 5px;
-    float: left;
-    border-radius: 50%;
+
+.edit_comment_form{
+    display: none;
 }
 
 #comment_form {
