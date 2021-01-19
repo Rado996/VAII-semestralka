@@ -27,6 +27,9 @@ if ($database->connect_error) {
     die("Connection failed: " . $database->connect_error);
 }
 
+
+
+
 $commentsDatabase = $database->query("SELECT * FROM comments ORDER BY created_at DESC");
 $comments = mysqli_fetch_all($commentsDatabase, MYSQLI_ASSOC);
 
@@ -39,6 +42,8 @@ $pics = mysqli_fetch_all($pictureDatabase, MYSQLI_ASSOC);
 if (isset($_POST['comment_posted'])) {
     $comment = $database->real_escape_string($_POST['comment_text']);
     $author = $database->real_escape_string($_POST['comment_author']);
+    //$post_comment = $database->prepare("SELECT * FROM users WHERE username='$username' AND password='$pass'");
+   // $post_comment->bind_param("ss", $comment,  $author);
     $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', '$author',  now(), null)");
     exit('Comment added');
 
@@ -158,31 +163,29 @@ if (isset($_POST['Register'])) {
         } else {
             //$password = md5( $pass);
             //$password = password_hash($pass, PASSWORD_DEFAULT);
-            $database->query("INSERT INTO users (username, email, password)  VALUES('$username', '$email', '$pass')");
-            $sql = $database->query("SELECT id FROM users WHERE username='$username'");
-            $data = $sql->fetch_assoc();
+            $register_user = $database->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            $register_user->bind_param("sss", $username, $email, $pass);
+            $register_user->execute();
             $_SESSION['loggedInUser'] = 1;
             $_SESSION['userName'] = $username;
-            $_SESSION['userID'] = $data['id'];
             exit('success');
-
+            header('location: Index.php');
         }
     }else{
         exit('failedEmail');
     }
-
 }
 
 if (isset($_POST['Login'])) {
     $username = $database->real_escape_string($_POST['name']);
     $pass = $database->real_escape_string($_POST['pass']);
 
-
     //$password = md5( $password);
     //$password = password_hash($password, PASSWORD_DEFAULT);
-    $sql = $database->query("SELECT * FROM users WHERE username='$username' AND password='$pass'");
-    if ($sql->num_rows == 1) {
-        $data = $sql->fetch_assoc();
+    $login_user = $database->prepare("SELECT * FROM users WHERE username='$username' AND password='$pass'");
+    $login_user->bind_param("ss", $username,  $pass);
+    $login_user->execute();
+    if ($login_user->num_rows == 1) {
         $_SESSION['userName'] = $username; //
         $_SESSION['loggedInUser'] = 1;
         $loggedIn = true;
