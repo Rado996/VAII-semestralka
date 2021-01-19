@@ -45,10 +45,10 @@ if (isset($_POST['comment_posted'])) {
     //$post_comment = $database->prepare("SELECT * FROM users WHERE username='$username' AND password='$pass'");
    // $post_comment->bind_param("ss", $comment,  $author);
     $database->query("INSERT INTO comments (Body, Created_by, Created_at, Updated_at) VALUES ('$comment', '$author',  now(), null)");
-    exit('Comment added');
 
     unset($_POST['comment_posted']);
     unset($_POST['comment_text']);
+    exit('Comment added');
 }
 
 

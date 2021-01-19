@@ -4,9 +4,7 @@
 
     <?php include('Head.php');
     ?>
-    <style>
-        <?php include 'css/1.css'; ?>
-    </style>
+
 </head>
 <body>
 

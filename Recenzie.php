@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="sk">
-<head>
+<head title="Ponuka">
 
     <?php include('Head.php');  ?>
 
@@ -28,21 +28,21 @@
                     foreach ($comments as $comment): ?>
                         <div class="comment clearfix" id="comment<?php echo($comment['Comment_ID'])?>">
                             <div class="comment-details">
-                                <p id="author" data-author="<?php echo($comment["Created_by"]) ?>" > <?php echo($comment["Created_by"])?>  </p>
+                                <p class="author" data-author="<?php echo($comment["Created_by"]) ?>" > <?php echo($comment["Created_by"])?>  </p>
                                 <span class="comment-date"><?php echo date("F j, Y ", strtotime($comment["Created_at"])); ?></span>
                                 <p><?php echo $comment['Body']; ?></p>
                                 <?php if(isset($_SESSION["userName"])) {
                                     if(($_SESSION["userName"] == $comment["Created_by"]) || ($_SESSION["userName"] == "Admin") ){ ?>
-                                        <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentDeleteBtn"  id="cmmtDelete">Vymazať</a>
-                                        <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentEditBtn"  id="cmmtEdit">Upraviť</a>
+                                        <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentDeleteBtn"  >Vymazať</a>
+                                        <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentEditBtn"  >Upraviť</a>
                                 <?php }} ?>
                             </div>
                         </div>
                         <div class="comment clearfix edit_comment_form" id="editComment<?php echo($comment['Comment_ID']) ; ?>">
                             <div class="comment-details">
                                 <textarea class="form-control" cols="10" rows="1" id="editCommentArea<?php echo $comment['Comment_ID']; ?>"><?php echo $comment['Body']; ?></textarea>
-                                <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentSendEditBtn"  id="cmmtEditSend">Odoslať</a>
-                                <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentCancelEditBtn"  id="cmmtEditCancel" >Zrusit</a>
+                                <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentSendEditBtn"  >Odoslať</a>
+                                <a  data-cmid="<?php echo $comment['Comment_ID']; ?>" class="btn btn-warning commentCancelEditBtn"   >Zrusit</a>
                             </div>
                         </div>
 

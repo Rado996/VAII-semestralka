@@ -3,12 +3,10 @@ include ('server.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="sk">
-<head>
+
     <meta charset="UTF-8">
     <title>LaStrada</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -22,8 +20,8 @@ include ('server.php');
     </style>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-</head>
-<body>
+
+
     <div class="header">
         <img src="img/lastradalogo_1.png" alt="Logo" />
     </div>
@@ -47,28 +45,28 @@ include ('server.php');
                     <a class="nav-link " href="Recenzie.php">Recenzie</a>
                 </li>
             </ul>
-            <?php if (!$loggedIn) : ?>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link " href="Login.php">Prihlasenie</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link " href="Registracia.php">Registracia</a>
-                </li>
-            </ul>
+            <?php if (isset($_SESSION['userName'])) : ?>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="Login.php"> <?php echo $_SESSION['userName']  ?> </a>
+                    </li>
+                    <li class="nav-item active">
+                        <button class="btn btn-danger"  name="Logout" id="Logout" >Logout</button>
+                    </li>
+                </ul>
             <?php else: ?>
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link " href="Login.php"> <?php echo $_SESSION['userName']  ?> </a>
-                </li>
-                <li class="nav-item active">
-                    <button class="btn btn-danger"  name="Logout" id="Logout" href="index.php" >Logout</button>
-                </li>
-            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link " href="Login.php">Prihlasenie</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link " href="Registracia.php">Registracia</a>
+                    </li>
+                </ul>
             <?php endif; ?>
 
         </div>
     </nav>
-</body>
-</html>
+
+
 
